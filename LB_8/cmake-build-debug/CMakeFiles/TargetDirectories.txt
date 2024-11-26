@@ -1,0 +1,4 @@
+C:/Users/user/Desktop/Univer/2 Year/С++/LR_8/cmake-build-debug/CMakeFiles/LR_8_1.dir
+C:/Users/user/Desktop/Univer/2 Year/С++/LR_8/cmake-build-debug/CMakeFiles/LR_8_2.dir
+C:/Users/user/Desktop/Univer/2 Year/С++/LR_8/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/user/Desktop/Univer/2 Year/С++/LR_8/cmake-build-debug/CMakeFiles/rebuild_cache.dir

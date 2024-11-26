@@ -1,0 +1,6 @@
+C:/Users/user/Desktop/Univer/2 Year/С++/LB_4/cmake-build-debug/CMakeFiles/LB_4_1.dir
+C:/Users/user/Desktop/Univer/2 Year/С++/LB_4/cmake-build-debug/CMakeFiles/LB_4_2.dir
+C:/Users/user/Desktop/Univer/2 Year/С++/LB_4/cmake-build-debug/CMakeFiles/LB_4_3.dir
+C:/Users/user/Desktop/Univer/2 Year/С++/LB_4/cmake-build-debug/CMakeFiles/LB_4_4.dir
+C:/Users/user/Desktop/Univer/2 Year/С++/LB_4/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/user/Desktop/Univer/2 Year/С++/LB_4/cmake-build-debug/CMakeFiles/rebuild_cache.dir

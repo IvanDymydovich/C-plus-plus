@@ -1,0 +1,331 @@
+Завдання 1
+#include <iostream>
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time
+
+int main() {
+    const int m = 4; // Кількість рядків
+    const int n = 3; // Кількість стовпців
+    int arr[m][n];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими цілими числами від 0 до 99
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            arr[i][j] = rand() % 100; // Випадкові числа від 0 до 99
+        }
+    }
+
+    // Виводимо масив
+    std::cout << "Сгенерований двомірний масив:\n";
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            std::cout << arr[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    // Підрахунок парних чисел у кожному рядку
+    for (int i = 0; i < m; ++i) {
+        int evenCount = 0; // Лічильник парних чисел
+        for (int j = 0; j < n; ++j) {
+            if (arr[i][j] % 2 == 0) { // Перевірка на парність
+                evenCount++;
+            }
+        }
+        // Виводимо результат для кожного рядка
+        std::cout << "Кількість парних чисел у рядку " << i + 1 << ": " << evenCount << std::endl;
+    }
+
+    return 0;
+}
+
+Завдання 2
+
+#include <iostream>
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time
+
+int main() {
+    const int m = 6; // Кількість рядків
+    const int n = 4; // Кількість стовпців
+    int arr[m][n];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими цілими числами від 0 до 99
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            arr[i][j] = rand() % 100; // Випадкові числа від 0 до 99
+        }
+    }
+
+    // Виводимо масив
+    std::cout << "Сгенерований двомірний масив:\n";
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            std::cout << arr[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    // Підрахунок парних чисел у кожному стовпчику
+    for (int j = 0; j < n; ++j) {
+        int evenCount = 0; // Лічильник парних чисел
+        for (int i = 0; i < m; ++i) {
+            if (arr[i][j] % 2 == 0) { // Перевірка на парність
+                evenCount++;
+            }
+        }
+        // Виводимо результат для кожного стовпчика
+        std::cout << "Кількість парних чисел у стовпчику " << j + 1 << ": " << evenCount << std::endl;
+    }
+
+    return 0;
+}
+
+
+Завдання 3
+
+#include <iostream>
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time
+
+int main() {
+    const int m = 5; // Кількість рядків
+    const int n = 7; // Кількість стовпців
+    int arr[m][n];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими цілими числами від 1 до 50
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            arr[i][j] = rand() % 50 + 1; // Випадкові числа від 1 до 50
+        }
+    }
+
+    // Виводимо масив
+    std::cout << "Сгенерований двомірний масив:\n";
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            std::cout << arr[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    // Обчислення та виведення суми елементів кожного рядка
+    for (int i = 0; i < m; ++i) {
+        int sum = 0; // Лічильник суми
+        for (int j = 0; j < n; ++j) {
+            sum += arr[i][j]; // Додаємо значення елемента до суми
+        }
+        // Виводимо результат для кожного рядка
+        std::cout << "Сума елементів у рядку " << i + 1 << ": " << sum << std::endl;
+    }
+
+    return 0;
+}
+
+
+Завдання 4
+
+#include <iostream>
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time
+
+int main() {
+    const int m = 4; // Кількість рядків
+    const int n = 6; // Кількість стовпців
+    int arr[m][n];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими цілими числами від 1 до 50
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            arr[i][j] = rand() % 50 + 1; // Випадкові числа від 1 до 50
+        }
+    }
+
+    // Виводимо масив
+    std::cout << "Сгенерований двомірний масив:\n";
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            std::cout << arr[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    // Обчислення та виведення суми елементів кожного стовпчика
+    for (int j = 0; j < n; ++j) {
+        int sum = 0; // Лічильник суми
+        for (int i = 0; i < m; ++i) {
+            sum += arr[i][j]; // Додаємо значення елемента до суми
+        }
+        // Виводимо результат для кожного стовпчика
+        std::cout << "Сума елементів у стовпчику " << j + 1 << ": " << sum << std::endl;
+    }
+
+    return 0;
+}
+
+Завдання 5
+
+#include <iostream>
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time
+
+int main() {
+    const int m = 3; // Кількість рядків
+    const int n = 4; // Кількість стовпців
+    int arr[m][n];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими цілими числами від 1 до 100
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            arr[i][j] = rand() % 100 + 1; // Випадкові числа від 1 до 100
+        }
+    }
+
+    // Виводимо масив
+    std::cout << "Сгенерований двомірний масив:\n";
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            std::cout << arr[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    // Знаходимо максимальний елемент і його позицію
+    int maxElement = arr[0][0];
+    int maxRow = 0;
+    int maxCol = 0;
+
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (arr[i][j] > maxElement) {
+                maxElement = arr[i][j];
+                maxRow = i;
+                maxCol = j;
+            }
+        }
+    }
+
+    // Виводимо результат
+    std::cout << "Максимальний елемент: " << maxElement << std::endl;
+    std::cout << "Номер елемента: рядок " << maxRow + 1 << ", стовпець " << maxCol + 1 << std::endl;
+
+    return 0;
+}
+
+
+Завдання 6
+
+#include <iostream>
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time
+
+int main() {
+    const int m = 4; // Кількість рядків
+    const int n = 7; // Кількість стовпців
+    int arr[m][n];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими цілими числами від 1 до 100
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            arr[i][j] = rand() % 100 + 1; // Випадкові числа від 1 до 100
+        }
+    }
+
+    // Виводимо масив
+    std::cout << "Сгенерований двомірний масив:\n";
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            std::cout << arr[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    // Знаходимо мінімальний елемент і його позицію
+    int minElement = arr[0][0];
+    int minRow = 0;
+    int minCol = 0;
+
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (arr[i][j] < minElement) {
+                minElement = arr[i][j];
+                minRow = i;
+                minCol = j;
+            }
+        }
+    }
+
+    // Виводимо результат
+    std::cout << "Мінімальний елемент: " << minElement << std::endl;
+    std::cout << "Номер елемента: рядок " << minRow + 1 << ", стовпець " << minCol + 1 << std::endl;
+
+    return 0;
+}
+
+
+Завдання 15
+
+#include <iostream>
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time
+
+int main() {
+    const int m = 3; // Кількість рядків
+    const int n = 3; // Кількість стовпців
+    int arr[m][n];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими цілими числами від 1 до 100
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            arr[i][j] = rand() % 100 + 1; // Випадкові числа від 1 до 100
+        }
+    }
+
+    // Виводимо масив
+    std::cout << "Сгенерований двомірний масив:\n";
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            std::cout << arr[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    // Обчислюємо суму по головній діагоналі
+    int mainDiagonalSum = 0;
+    for (int i = 0; i < m; ++i) {
+        mainDiagonalSum += arr[i][i]; // Головна діагональ
+    }
+
+    // Обчислюємо суму по побічній діагоналі
+    int secondaryDiagonalSum = 0;
+    for (int i = 0; i < m; ++i) {
+        secondaryDiagonalSum += arr[i][n - 1 - i]; // Побічна діагональ
+    }
+
+    // Виводимо результати
+    std::cout << "Сума по головній діагоналі: " << mainDiagonalSum << std::endl;
+    std::cout << "Сума по побічній діагоналі: " << secondaryDiagonalSum << std::endl;
+
+    return 0;
+}

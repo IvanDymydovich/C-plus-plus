@@ -1,0 +1,168 @@
+Завдання 3
+
+#include <iostream>
+#include <algorithm> // Для std::max_element, std::min_element
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time()
+
+int main() {
+    const int size = 10; // Розмір масиву
+    int arr[size];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими різними цілими числами
+    for (int i = 0; i < size; ++i) {
+        arr[i] = rand() % 100; // Випадкові числа від 0 до 99
+    }
+
+    // Виводимо масив до зміни
+    std::cout << "Масив до зміни: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Знаходимо вказівники на максимальний і мінімальний елементи
+    int* maxPtr = std::max_element(arr, arr + size);
+    int* minPtr = std::min_element(arr, arr + size);
+
+    // Змінюємо місцями максимальний і мінімальний елементи
+    std::swap(*maxPtr, *minPtr);
+
+    // Виводимо масив після зміни
+    std::cout << "Масив після зміни: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+Завдання 4
+
+#include <iostream>
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time
+
+int main() {
+    const int size = 10; // Розмір масиву
+    int arr[size];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими цілими числами
+    for (int i = 0; i < size; ++i) {
+        arr[i] = rand() % 100; // Випадкові числа від 0 до 99
+    }
+
+    // Виводимо масив
+    std::cout << "Сгенерований масив: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Вводимо число A
+    int A;
+    std::cout << "Введіть число A: ";
+    std::cin >> A;
+
+    // Підрахунок кількості елементів більших за A
+    int count = 0;
+    for (int i = 0; i < size; ++i) {
+        if (arr[i] > A) {
+            count++;
+        }
+    }
+
+    // Виводимо результат
+    std::cout << "Кількість елементів більших за " << A << ": " << count << std::endl;
+
+    return 0;
+}
+
+Завдання 5
+
+#include <iostream>
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time
+#include <algorithm> // Для std::sort
+
+int main() {
+    const int size = 10; // Розмір масиву
+    int arr[size];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими різними цілими числами
+    for (int i = 0; i < size; ++i) {
+        arr[i] = rand() % 100; // Випадкові числа від 0 до 99
+    }
+
+    // Виводимо масив
+    std::cout << "Сгенерований масив: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Сортуємо масив у порядку зростання
+    std::sort(arr, arr + size);
+
+    // Виводимо другий по величині елемент
+    std::cout << "Другий по величині елемент: " << arr[size - 2] << std::endl;
+
+    return 0;
+}
+
+
+Завдання 6
+
+#include <iostream>
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time
+
+int main() {
+    const int size = 10; // Розмір масиву
+    int arr[size];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими цілими числами від -10 до 10
+    for (int i = 0; i < size; ++i) {
+        arr[i] = rand() % 21 - 10; // Випадкові числа від -10 до 10
+    }
+
+    // Виводимо масив
+    std::cout << "Сгенерований масив: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Змінна для зберігання номера першого нульового елемента
+    int zeroIndex = -1;
+
+    // Пошук першого нульового елемента
+    for (int i = 0; i < size; ++i) {
+        if (arr[i] == 0) {
+            zeroIndex = i; // Зберігаємо індекс нульового елемента
+            break; // Виходимо з циклу після знаходження першого нуля
+        }
+    }
+
+    // Виводимо результат
+    if (zeroIndex != -1) {
+        std::cout << "Перший нульовий елемент знаходиться на позиції: " << zeroIndex << std::endl;
+    } else {
+        std::cout << "Масив не містить нульових елементів." << std::endl;
+    }
+
+    return 0;
+}

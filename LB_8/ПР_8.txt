@@ -1,0 +1,81 @@
+Завдання 1
+
+#include <iostream>
+#include <algorithm> // Для std::sort
+#include <cstdlib>  // Для rand() і srand()
+#include <ctime>    // Для time()
+
+int main() {
+    const int m = 12; // Розмір масиву
+    int arr[m];
+
+    // Ініціалізуємо генератор випадкових чисел
+    srand(static_cast<unsigned int>(time(0)));
+
+    // Заповнюємо масив випадковими цілими числами
+    for (int i = 0; i < m; ++i) {
+        arr[i] = rand() % 100; // Випадкові числа від 0 до 99
+    }
+
+    // Виводимо масив до сортування
+    std::cout << "Масив до сортування: ";
+    for (int i = 0; i < m; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Сортуємо масив у зростаючому порядку
+    std::sort(arr, arr + m);
+    std::cout << "Масив у зростаючому порядку: ";
+    for (int i = 0; i < m; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Сортуємо масив у спадному порядку
+    std::sort(arr, arr + m, std::greater<int>());
+    std::cout << "Масив у спадному порядку: ";
+    for (int i = 0; i < m; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+Завдання 2
+
+#include <iostream>
+#include <algorithm> // Для std::max_element
+
+int main() {
+    const int size = 10; // Розмір масиву
+    int arr[size] = {3, -1, -2, 5, 4, -3, 6, -7, 1, 2}; // Приклад масиву
+
+    // Виводимо масив до змінення
+    std::cout << "Масив до зміни: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Знаходимо перший максимальний елемент
+    int* maxPtr = std::max_element(arr, arr + size);
+    int maxIndex = maxPtr - arr; // Індекс першого максимального елемента
+
+    // Замінюємо від'ємні елементи нулями перед першим максимальним елементом
+    for (int i = 0; i < maxIndex; ++i) {
+        if (arr[i] < 0) {
+            arr[i] = 0;
+        }
+    }
+
+    // Виводимо масив після зміни
+    std::cout << "Масив після зміни: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}

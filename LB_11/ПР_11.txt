@@ -1,0 +1,134 @@
+Завдання 1
+
+#include <iostream>
+
+struct Date {
+    int hours;
+    int minutes;
+};
+
+void printTime(const Date& date) {
+    // Виводимо час у форматі ГГ:ХХ, де години та хвилини завжди двозначні
+    std::cout << (date.hours < 10 ? "0" : "") << date.hours << ":"
+              << (date.minutes < 10 ? "0" : "") << date.minutes << std::endl;
+}
+
+int main() {
+    Date startTime;
+
+    // Введення початкового часу
+    std::cout << "Введіть години (0-24): ";
+    std::cin >> startTime.hours;
+    while (startTime.hours < 0 || startTime.hours >= 24) {
+        std::cout << "Некоректне значення. Введіть години (0-24): ";
+        std::cin >> startTime.hours;
+    }
+
+    std::cout << "Введіть хвилини (0-59): ";
+    std::cin >> startTime.minutes;
+    while (startTime.minutes < 0 || startTime.minutes >= 60) {
+        std::cout << "Некоректне значення. Введіть хвилини (0-59): ";
+        std::cin >> startTime.minutes;
+    }
+
+    // Введення кількості хвилин для додавання
+    int additionalMinutes;
+    std::cout << "Введіть кількість хвилин для додавання: ";
+    std::cin >> additionalMinutes;
+
+    // Обчислення нового часу
+    startTime.minutes += additionalMinutes;
+
+    // Виправляємо години та хвилини, якщо потрібно
+    if (startTime.minutes >= 60) {
+        startTime.hours += startTime.minutes / 60; // Додаємо години
+        startTime.minutes %= 60; // Залишаємо лише хвилини
+    }
+
+    if (startTime.hours >= 24) {
+        startTime.hours %= 24; // Якщо години перевищують 24, беремо залишок
+    }
+
+    // Виводимо новий час
+    std::cout << "Новий час: ";
+    printTime(startTime);
+
+    return 0;
+}
+
+Завдання 2
+
+#include <iostream>
+
+struct Date {
+    int hours;
+    int minutes;
+
+    // Значення за замовчуванням для структури Date
+    Date() : hours(0), minutes(0) {}
+};
+
+// Функція для виведення часу у форматі ГГ:ХХ
+void printTime(const Date& date) {
+    std::cout << (date.hours < 10 ? "0" : "") << date.hours << ":"
+              << (date.minutes < 10 ? "0" : "") << date.minutes << std::endl;
+}
+
+// Функція для обчислення тривалості події
+Date calculateDuration(const Date& start, const Date& end) {
+    Date duration;
+
+    // Якщо закінчення часу менше початкового, означає, що подія тривала через опівніч
+    if (end.hours < start.hours || (end.hours == start.hours && end.minutes < start.minutes)) {
+        duration.hours = 24 - start.hours + end.hours;
+        duration.minutes = end.minutes - start.minutes;
+
+        // Якщо хвилини від'ємні, коригуємо
+        if (duration.minutes < 0) {
+            duration.minutes += 60;
+            duration.hours--;
+        }
+    } else {
+        duration.hours = end.hours - start.hours;
+        duration.minutes = end.minutes - start.minutes;
+
+        // Якщо хвилини від'ємні, коригуємо
+        if (duration.minutes < 0) {
+            duration.minutes += 60;
+            duration.hours--;
+        }
+    }
+
+    return duration;
+}
+
+int main() {
+    Date startTime, endTime;
+
+    // Введення часу початку
+    std::cout << "Введіть час початку (години хвилини): ";
+    std::cin >> startTime.hours >> startTime.minutes;
+    
+    while (startTime.hours < 0 || startTime.hours >= 24 || startTime.minutes < 0 || startTime.minutes >= 60) {
+        std::cout << "Некоректне значення. Введіть години (0-24) та хвилини (0-59): ";
+        std::cin >> startTime.hours >> startTime.minutes;
+    }
+
+    // Введення часу завершення
+    std::cout << "Введіть час завершення (години хвилини): ";
+    std::cin >> endTime.hours >> endTime.minutes;
+
+    while (endTime.hours < 0 || endTime.hours >= 24 || endTime.minutes < 0 || endTime.minutes >= 60) {
+        std::cout << "Некоректне значення. Введіть години (0-24) та хвилини (0-59): ";
+        std::cin >> endTime.hours >> endTime.minutes;
+    }
+
+    // Обчислення тривалості події
+    Date duration = calculateDuration(startTime, endTime);
+
+    // Виводимо тривалість події
+    std::cout << "Тривалість події: ";
+    printTime(duration);
+
+    return 0;
+}

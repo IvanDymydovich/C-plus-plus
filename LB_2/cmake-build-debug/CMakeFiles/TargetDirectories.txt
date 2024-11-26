@@ -1,0 +1,4 @@
+C:/Users/user/Desktop/Univer/2 Year/С++/LB_2/cmake-build-debug/CMakeFiles/LB_2_1.dir
+C:/Users/user/Desktop/Univer/2 Year/С++/LB_2/cmake-build-debug/CMakeFiles/LB_2_2.dir
+C:/Users/user/Desktop/Univer/2 Year/С++/LB_2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/user/Desktop/Univer/2 Year/С++/LB_2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
